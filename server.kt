@@ -135,12 +135,16 @@ class HandlerThreadPool: Handler {
             state = State.processing
             pool.execute(object: Runnable {
                 override fun run() {
-                    readprocess(readcount)
+                    processAndHandoff(readcount)
                 }
             })
-            state = State.sending
             selectionkey?.interestOps(SelectionKey.OP_WRITE)
         }
+    }
+
+    fun processAndHandoff(readcount: Int) {
+        readprocess(readcount)
+        state = State.sending
     }
 
 }
