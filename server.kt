@@ -8,7 +8,7 @@ import java.io.*
 import java.util.concurrent.*
 
 class Reactor(val port: Int, val withThreadPool: Boolean = true): Runnable {
-    val sschannel: ServerSocketChannel
+    var sschannel: ServerSocketChannel
     var selector: Selector
     var selectkey0: SelectionKey
     init {

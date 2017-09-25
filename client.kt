@@ -1,8 +1,6 @@
 package reactor.client
 
 import java.net.Socket
-import java.net.UnknownHostException
-//import java.io.*
 import java.io.OutputStreamWriter
 import java.io.IOException
 
